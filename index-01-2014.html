@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="ISO-8859-1" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+	
+	<title>..: LA CIUDADELA :..: Residencia Universitaria :.. </title>
+	
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="searchtitle" content="LA CIUDADELA - Residencia Universitaria"/>
+	<meta name="copyright" content=""/>
+	
+	<meta name="author" content="Fingers Working">
+	<link rel="author" href="http://www.fingersnet.com/">
+	<meta name="googlebot" content="all" />
+	<meta name="robots" content="noodp,noydir" />
+	<meta name="robots" content="index, follow" />
+	<link rel="thumbnail" href="images/favicon.ico" />
+	<link rel="shortcut icon" href="images/favicon.ico"/>
+	<link rel="target_url" href="http://www.residenciaciudadela.org.ar/" />
+	
+	<link rel="stylesheet" media="screen, print" href="css/estilos.css" />
+	
+	<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {			
+			$('#fdo').localScroll({	target:'body' });
+			
+			$('#enviar').click(function() {			
+				ok = 0;				
+				if($('#nombre').val() == ''){
+					$('#nombre').css('border-right','4px solid red');
+					ok = 1
+				}
+				if($('#mail').val() == '')	{
+					$('#mail').css('border-right','4px solid red');
+					ok = 1
+				}
+				if($('#msj').val() == ''){
+					$('#msj').css('border-right','4px solid red');
+					ok = 1
+				}				
+				if(ok == 0)	{
+					nombre = $('#nombre').val();
+					mail = $('#mail').val();
+					msj = $('#msj').val();										
+					$('#nombre').val('');
+					$('#mail').val('');
+					$('#msj').val('Enviando...');					
+					$.ajax({
+						url: "send-contacto.php",
+						type: "POST",
+						data: {nombre: nombre, mail: mail, msj: msj},
+						success: function(){
+							$('#msj').val('Mensaje enviado, muchas gracias.');
+						}
+					});					
+				}
+				return false;			
+			});
+			$('#enviarSolicitud').click(function() {			
+				ok = 0;				
+				if($('#Snombre').val() == ''){
+					$('#Snombre').css('border-right','4px solid red');
+					ok = 1
+				}
+				if($('#Smail').val() == '')	{
+					$('#Smail').css('border-right','4px solid red');
+					ok = 1
+				}
+				if($('#tel').val() == ''){
+					$('#tel').css('border-right','4px solid red');
+					ok = 1
+				}
+				if($('#dir').val() == ''){
+					$('#dir').css('border-right','4px solid red');
+					ok = 1
+				}	
+				if($('#col').val() == ''){
+					$('#col').css('border-right','4px solid red');
+					ok = 1
+				}	
+				if($('#carrera').val() == ''){
+					$('#carrera').css('border-right','4px solid red');
+					ok = 1
+				}	
+				if($('#uni').val() == ''){
+					$('#uni').css('border-right','4px solid red');
+					ok = 1
+				}				
+				if(ok == 0)	{
+					Snombre, dir, ciudad, pais, Smail, tel, nac, col, carrera, anio, uni, activ, otros
+					nombre = $('#Snombre').val();
+					mail = $('#Smail').val();
+					dir = $('#dir').val();										
+					ciudad = $('#ciudad').val();										
+					pais = $('#pais').val();										
+					tel = $('#tel').val();										
+					nac = $('#nac').val();										
+					col = $('#col').val();										
+					carrera = $('#carrera').val();										
+					anio = $('#anio').val();										
+					uni = $('#uni').val();										
+					activ = $('#activ').val();										
+					otros = $('#otros').val();										
+					
+					$('#Snombre').val('');
+					$('#Smail').val('');
+					$('#dir').val('');										
+					$('#ciudad').val('');										
+					$('#pais').val('');										
+					$('#tel').val('');										
+					$('#nac').val('');										
+					$('#col').val('');										
+					$('#carrera').val('');										
+					$('#anio').val('');										
+					$('#uni').val('');										
+					$('#activ').val('');										
+					$('#otros').val('');
+					//$('#msj').val('Enviando...');					
+					$.ajax({
+						url: "send-contacto.php",
+						type: "POST",
+						data: {nombre: Snombre, mail: Smail, dir: dir, ciudad: ciudad, pais: pais, tel: tel, nac: nac, col: col, carrera: carrera, anio: anio, uni: uni, activ: activ, otros: otros},
+						success: function(){
+							$('#msj').val('Mensaje enviado, muchas gracias.');
+						}
+					});					
+				}
+				return false;			
+			});
+		});
+	</script>
+		
+	<!-- Carrusel -->
+	<script type="text/javascript" src="js/scrollingcarousel.2.0.min.js"></script>
+	
+	<!-- scroll -->
+	<script type="text/javascript" src="js/jquery.localscroll-1.2.7-min.js"></script>
+	<script type="text/javascript" src="js/jquery.scrollTo-min.js"></script>
+		
+	<!--[if lt IE 9]>
+	<script type="text/javascript">
+	   document.createElement("nav");
+	   document.createElement("header");
+	   document.createElement("footer");
+	   document.createElement("section");
+	   document.createElement("article");
+	</script>
+	<![endif]-->
+	
+	<!--[if IE]>
+	<style></style>
+	<![endif]-->			
+			
+</head>
+<body>
+	<header data-role="header">
+		<div id="fdo">
+			<div class="logo">
+				<a href="#home">
+					<h1 title="LA CIUDADELA - Residencia Universitaria">LA CIUDADELA - Residencia Universitaria</h1>
+				</a>
+			</div>
+			<a href="#solicitudIngreso" class="aSolicitud" id="solicitud">Solicitud de ingreso</a>
+			<div id="menu">		
+				<ul class="nav">
+					<li><a title="Quienes somos" href="#quienesSomos">Quienes somos</a></li>
+					<li><a title="Actividades" href="#actividades">Actividades</a></li>
+					<li><a title="Habitaciones" href="#habitaciones">Instalaciones</a></li>
+					<li><a title="Ubicación" href="#ubicacion">Ubicación</a></li>
+					<li><a title="Opus Dei" href="#opus">Opus Dei</a></li>
+					<li><a title="Contacto" href="#contacto">Contacto</a></li>
+				</ul>
+			</div>
+		</div>
+	</header>	
+	<section data-role="page">
+		<article id="art-home">
+			<div id="home">
+				<div class="slider-wrapper theme-bar">
+					<div id="slider" class="nivoSlider">
+						<img src="images/home/FOTOS-1.jpg" />
+						<img src="images/home/FOTOS-2.jpg" />
+						<img src="images/home/FOTOS-3.jpg" />
+						<img src="images/home/FOTOS-4.jpg" />
+						<img src="images/home/FOTOS-5.jpg" />
+					</div>
+				</div>
+				<script type="text/javascript" src="js/jquery.nivo.slider.js"></script>
+				<script type="text/javascript">
+				$(window).load(function() {
+					$('#slider').nivoSlider({
+						effect: 'random', // Specify sets like: 'fold,fade,sliceDown'
+						animSpeed: 500, // Slide transition speed
+						pauseTime: 6000, // How long each slide will show
+						directionNav: true, // Next & Prev navigation
+						controlNav: true, // 1,2,3... navigation
+						controlNavThumbs: false, // Use thumbnails for Control Nav
+						pauseOnHover: true, // Stop animation while hovering
+						manualAdvance: false, // Force manual transitions
+						prevText: '<<', // Prev directionNav text
+						nextText: '>>', // Next directionNav text
+					});
+				});
+				</script>
+				<div id="news">	
+					<div id="facebook">
+						<h3>Hacete amiga en facebook</h3>
+						<p>Seguinos en facebook y enterate de todas nuestras actividades, noticias y viajes, fotos y recuerdos.</p>
+						<a href="https://www.facebook.com/residencia.laciudadela?fref=ts" target="_blank">• Ver más aquí</a>
+					</div>
+					<div id="blog">
+						<h3>INFORMATE EN NUESTRO BLOG</h3>
+						<p>En este espacio podrás leer informes y redacciones muy interesantes y divertidos de temas de la actualidad.</p>
+						<a href="https://www.facebook.com/laciudadelaresidencia?fref=te">• Ver más aquí</a>
+					</div>
+					<div id="historia">
+						<img src="images/1962-2012-50_anios_La_Ciudadela.jpg" title="1962-2012 - 50° - Ciudadela" alt="1962-2012 - 50° - Ciudadela" width="254" height="177" />
+					</div>
+				</div>
+			</div>
+		</article>		
+		<article id="art-quienesSomos">
+			<div id="quienesSomos">
+				<img id="destacado" src="images/Destacado-quienesSomos.png" title="La Ciudadela está abierta a todas, sin distinción de raza, credo o religión" alt="La Ciudadela está abierta a todas, sin distinción de raza, credo o religión" width="234" height="234" />
+				<div id="como_casa">
+					<h3>Quiénes somos </h3>
+					<p>
+						La Ciudadela es una residencia para universitarias que pertenece a la Asociación para el Fomento de la Cultura (AFC) quien ha confiado la orientación doctrinal y la atención espiritual a la Prelatura del Opus Dei, una institución de la Iglesia Católica.
+					</p>
+				</div>
+				<div id="links">
+					<h3>Links de interés</h3>
+					<p>
+						<a href="http://www.austral.edu.ar/" target="_blank">http://www.austral.edu.ar/</a><br />
+						<a href="http://www.uba.ar/" target="_blank">http://www.uba.ar/</a><br />
+						<a href="http://www.palermo.edu/" target="_blank">http://www.palermo.edu/</a><br />
+						<a href="http://www.uca.edu.ar/" target="_blank">http://www.uca.edu.ar/</a>
+					</p>
+				</div>
+				<div id="objPrioritarios">
+					<h4>Objetivos prioritarios</h4>
+					<div id="contObj">
+						<img src="images/obj1.png" />
+						<p id="obj1">							
+							Ofrecer a las residentes espacios propicios para desplegar sus capacidades intelectuales fomentando un intenso ambiente de 
+							estudio.<br /><br />
+						</p>
+						<img src="images/obj2.png" />
+						<p id="obj2">								
+							Fomentar el desarrollo integral de las residentes ofreciéndoles diversas actividades académicas, deportivas, artísticas y espirituales, de las cuales podrán participar libremente cuando lo deseen
+						</p>
+						<!-- <img src="images/obj3.png" />
+						<p id="obj3">
+							Lograr que la residencia sea, desde el principio, su casa, a través de un clima de alegría y de respeto hacia el otro.
+						</p> -->
+					</div>
+				</div>
+			</div>			
+		</article>		
+		<article id="art-actividades">		
+			<div id="actividades">
+				<h2>ACTIVIDADES</h2>
+				<!-- Slider -->
+				<iframe src="sliderImgs.html" width="887" height="294" style="border: 0 none; overflow: hidden;" ></iframe>
+
+				<div class="act-block">
+					<h3>
+						<span>Culturales</span>
+						<img src="images/actividades1.jpg" />
+					</h3>
+					<br />
+					<ul>
+						<li>Visitas a museos, ferias tecnológicas, galerías de arte y fotográficas.</li>
+					</ul>
+					<p>
+					La Residencia propone un clima de diálogo intercultural y para ello organiza actividades que despierten el interés en cuestiones 
+					específicas. Los temas son tan variados que llegan a cubrir aspectos relacionados con numerosas profesiones y las cuestiones de 
+					actualidad que se desprenden de ellas. A partir de estas actividades se generen nuevas propuestas que enriquecen a las participantes. 
+					</p>
+				</div>
+				<div class="act-block" style="margin-bottom: 20px;">
+					<h3>
+						<span id="esp">Espirituales</span>
+						<img src="images/actividades2.jpg" />
+					</h3>
+					<br />
+					<ul>
+						<li>Clases sobre Sacramentos, Vida espiritual y antropología.</li>
+						<li>Asesoramiento en las lecturas y prácticas espirituales.</li>
+					</ul>
+					<p>	
+						La persona es comprendida como un todo, tanto en sus necesidades humanas y materiales como en sus necesidades espirituales. La 
+						formación espiritual que brinda la residencia está confiada al asesoramiento de la Prelatura del Opus Dei, quienes a través del 
+						Consejo de Dirección y el Capellán asignado, garantizan que todas las que lo desean puedan acceder a una formación integral y 
+						personal en la doctrina de la Iglesia Católica.
+					</p>
+				</div>
+				<div class="act-block">
+					<h3>
+						<span id="dep">Deportivas</span>
+						<img src="images/actividades3.jpg" />
+					</h3>
+					<br />
+					<ul>
+						<li>Paseos en bicicleta, cabalgatas, hockey, tenis, rollers, caminatas, gimnasia, etc.</li>
+					</ul>
+					<p>	
+						El ejercicio físico y el deporte en equipo es parte fundamental para garantizar que las estudiantes conserven su buena salud 
+						física y mental, contribuyendo al esparcimiento. Estas actividades se planifican para que sean compatibles con el estudio 
+						intenso y las demás actividades.
+					</p>
+				</div>
+				<div class="act-block">
+					<h3>
+						<span id="sol">Solidarias</span>
+						<img src="images/actividades4.jpg" />
+					</h3>
+					<br />
+					<ul>
+						<li>Visitas a Ancianos y enfermos en hospitales públicos</li>
+						<li>Catequesis y apoyo escolar</li>
+						<li>Viajes Solidarios: Asistencia al centro CONIN en Mendoza</li>
+					</ul>
+					<p>
+						La apertura a las necesidades de los demás es una parte fundamental de la formación de las personas, más aún cuando están 
+						desarrollando su carrera universitaria. La Residencia organiza actividades diversas donde los más necesitados se ven beneficiados 
+						tanto como los mismos que les prestan su ayuda. Brindar tiempo a este tipo de actividades es la mejor forma de contribuir con el 
+						desarrollo de la sociedad.
+					</p>
+				</div>
+			</div>			
+		</article>		
+		<article id="habitaciones">
+			<h2>Instalaciones</h2>
+			<iframe src="iframeServicios.html" width="968" height="220" style="border: 0 none; overflow: hidden; margin-left: -8px;" ></iframe>
+			<ul class="ulHabita">
+				<li>Habitaciones compartidas de a 3, 4 ó 5 personas.</li>
+				<li>Pensión completa: desayuno, almuerzo, té y cena.</li>
+				<li>Lavado y planchado de ropa blanca.</li>
+				<li>Limpieza del inmueble.</li>
+				<li>2 salas de estudios silenciosas y 3 para trabajo en equipo.</li>
+			</ul>
+			<ul class="ulHabita">
+				<li>Recepción de mensajes telefónicos durante todo el día.</li>
+				<li>Computadoras y servicio a Internet WiFi.</li>
+				<li>En la cocina, nuestro menú es preparado por un personal altamente capacitado que prioriza la excelencia y la buena presentación 
+					de las comidas.
+				</li>
+			</ul>
+		</article>		
+		<article id="ubicacion">
+			<div id="centro">
+				<h2>Recoleta</h2>
+				<p>
+					La Ciudadela está situada en un lugar estratégico, a poca distancia de universidades como la Universidad de Buenos Aires, Instituto Tecnológico de Buenos Aires, Universidad Austral, Universidad de Belgrano, Universidad Tecnológica Nacional, Universidad del Salvador, Pontificia Universidad Católica Argentina, Universidad de Ciencias Empresariales y Universidad de San Andrés, entre otras.
+					<br /><br />
+					<strong>Transporte público</strong><br />
+					Circulan en las cercanías las siguientes líneas de colectivos: 5, 10, 12, 17, 26, 27 (ramales 1-3-4), 38, 39, 41, 59, 60, 61, 67, 75, 92, 93, 95, 101, 102, 106, 108, 110, 111, 115, 118, 124, 132, 142, 150, 152. Subte línea D. A diez cuadras de la estación Terminal Retiro.
+				</p>
+			</div>
+			<iframe width="543" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com.ar/maps?f=q&amp;source=s_q&amp;hl=es-419&amp;geocode=&amp;q=buenos+aires,+Rodriguez+Pe%C3%B1a+1439&amp;aq=&amp;sll=-34.592802,-58.391047&amp;sspn=0.009592,0.021136&amp;ie=UTF8&amp;hq=&amp;hnear=Rodr%C3%ADguez+Pena+1439,+Recoleta,+Buenos+Aires&amp;ll=-34.592802,-58.391047&amp;spn=0.009592,0.021136&amp;t=m&amp;z=14&output=embed&iwloc=near"></iframe>
+		</article>		
+		<article id="opus">		
+			<img src="images/SAN_JOSEMARIA_ESCRIVA.jpg" />
+			<h2>Opus Dei</h2>
+			<p>El Opus Dei -Obra de Dios, en latín- es una institución jerárquica de la Iglesia católica, una prelatura personal, que tiene como finalidad contribuir a la misión evangelizadora de la Iglesia. Concretamente, se propone difundir una profunda toma de conciencia de la llamada universal a la santidad y del valor santificador del trabajo ordinario. El Opus Dei fue fundado por San Josemaría Escrivá el 2 de octubre de 1928.
+			<br /><br />"Es en medio de las cosas más materiales de la tierra donde debemos santificarnos, sirviendo a Dios y a todos los hombres..." Homilía Amar al mundo apasionadamente, 8-10-1967.</p>
+			<span>San Josemaría Escrivá<br />Fundador del Opus Dei</span>
+			<div id="opusLinks">
+				<h4>LINKS DE INTERÉS</h4>
+				<p>
+					<a href="http://www.opusdei.org.ar/" target="_blank">http://www.opusdei.org.ar/</a><br />
+					<a href="http://www.escrivaobras.org/" target="_blank">http://www.escrivaobras.org/ </a>
+				</p>
+			</div>
+		</article>		
+		<article id="contacto">		
+			<div id="txtContacto">
+				<h3>Cualquier inquitud</h3>
+				<p>
+					No dudes en llamarnos al: <br/>
+					(011) 4811 - 0450<br/><br/>
+					O mandanos un email<br/>
+					info@residenciaciudadela.org.ar
+				</p>
+			</div>
+			<form method="POST" action="">
+				<label for="nombre">Nombre y Apellido:</label>
+				<input type="text" name="nombre" id="nombre" />
+				<label for="mail">Dirección email:</label>
+				<input type="text" name="mail" id="mail" />
+				<label for="msj">Consulta:</label>
+				<textarea name="msj" id="msj"></textarea>
+				<input type="button" id="enviar" value="ENVIAR" />
+			</form>
+		</article>		
+	</section>
+	<section id="solicitudIngreso">
+		<div id="contSolicitud">
+			<form method="POST" action="">
+				<div id="colA">
+					<h3>Solicitud de Ingreso</h3>
+					<h4>DATOS PERSONALES DE FUTURA RESIDENTE</h4>
+					<label for="nombre">Nombre y Apellido:</label>
+					<input type="text" name="Snombre" id="Snombre" />
+					<label for="dir">Dirección:</label>
+					<input type="text" name="dir" id="dir" />
+					<label for="ciudad">Ciudad:</label>
+					<label for="pais">País:</label>
+					<input type="text" name="ciudad" id="ciudad" />					
+					<input type="text" name="pais" id="pais" />
+					<label for="email">Dirección email:</label>
+					<input type="text" name="Smail" id="Smail" />
+					<label for="tel">Teléfono:</label>
+					<label for="nac">Fecha de Nacimiento:</label>
+					<input type="text" name="tel" id="tel" />
+					<input type="text" name="nac" id="nac" onblur="if(this.value == '') { this.value='DD/MM/AAAA'}" onfocus="if(this.value == 'DD/MM/AAAA') { this.value='' }" value="DD/MM/AAAA" />
+					<label for="col">Colegio Secundario y titulo obtenido:</label>
+					<input type="text" name="col" id="col" />
+					<label for="carrera">Carrega elegida:</label>
+					<input type="text" name="carrera" id="carrera" />
+					<label for="anio">Solicitud para el año:</label>
+					<input type="text" name="anio" id="anio" value="AAAA" onblur="if(this.value == '') { this.value='AAAA'}" onfocus="if(this.value == 'AAAA') { this.value='' }" />
+					<label for="uni">Universidad:</label>
+					<input type="text" name="uni" id="uni" />
+					<label for="activ">Actividades de interés:</label>
+					<label for="otros">Otros estudios:</label>
+					<input type="text" name="activ" id="activ" />
+					<input type="text" name="otros" id="otros" />
+				</div>
+				<div id="colB">
+					<p>Por favor, completá el siguiente fomulario<br />si deseás enviar tu solicitud de ingreso online.<br />Todos los campos son obligatorios. Gracias.</p>
+					<label for="conocio">Cómo conoció la residencia?</label>
+					<textarea name="conocio" id="conocio"></textarea>
+					<label for="espera">Qué espera de la residencia?</label>
+					<textarea name="espera" id="espera"></textarea><br /><br />
+					<h4>DATOS DE FAMILIAR O CONOCIDO EN BUENOS AIRES<br /><span style="font-size: 10px;">(Estos datos no son obligatorios)</span></h4>
+					<label for="nombreF">Nombre y Apellido:</label>
+					<input type="text" name="nombreF" id="nombreF" />
+					<label for="dirF">Dirección:</label>
+					<input type="text" name="dirF" id="dirF" />
+					<label for="ciudadF">Ciudad:</label>
+					<input type="text" name="ciudadF" id="ciudadF" />
+					<label for="telF">Teléfono:</label>
+					<input type="text" name="telF" id="telF" />
+					<input type="button" id="enviarSolicitud" value="ENVIAR" />
+				</div>
+			</form>
+		</div>
+	</section>
+	<footer>
+		Copyright © 2012 - Residencia Universitaria La Ciudadela | Rodriguez Peña 1489 - (011) 48110450 | 
+		<a href="mailto:info@residenciaciudadela.org.ar">info@residenciaciudadela.org.ar</a>
+	</footer>
+	
+</body>
+</html>
